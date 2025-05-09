@@ -1,0 +1,143 @@
+<html>
+<head><title>404 Not Found</title></head><!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面迷路了 - 404</title>
+    <style>
+        @font-face {
+            font-family: 'AlimamaShuHeiTi';
+            src: url('./src/ziti/AlimamaShuHeiTi-Bold.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        :root {
+            --bg-primary: #e3f2fd;
+            --bg-secondary: #f3e5f5;
+            --text-color: #2c3e50;
+            --hero-gradient: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'AlimamaShuHeiTi', system-ui, sans-serif;
+        }
+
+        body {
+            background: var(--hero-gradient);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 404 主体 */
+        .error-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .error-code {
+            font-size: 8rem;
+            background: linear-gradient(45deg, #64b5f6, #f06292);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .error-code::after {
+            content: '🚀';
+            position: absolute;
+            right: -1.2em;
+            top: -0.2em;
+            font-size: 0.6em;
+        }
+
+        .error-message {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .home-button {
+            padding: 12px 35px;
+            background: linear-gradient(45deg, #64b5f6, #f06292);
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(100, 181, 246, 0.3);
+        }
+
+        .home-button:hover {
+            transform: translateY(-3px);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 2rem 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .icp-links a {
+            text-decoration: none;
+        }
+
+        .icp-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        footer img {
+            width: 20px;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 6rem;
+            }
+            
+            .error-message {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-code">404</div>
+        <p class="error-message">哎呀！你要找的页面可能穿越到二次元了呢</p>
+        <a href="index.html" class="home-button">返回首页</a>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="copyright">
+                青春是一本太仓促的书，我们含着泪，一读再读。那些在校园里奔跑的日子，那些一起分享耳机的时光，都成了青春里最闪耀的碎片。我们通过这本照片集，留住青春的模样，唤起那些温暖而美好的回忆。
+            </div>
+            <div class="copyright">
+                © 2025 致青春 照片集. 保留所有权利.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

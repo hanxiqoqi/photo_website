@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>独属于我们的青春</title>
+    <link rel="icon" href="../static/img/Logo1.png">
+    <style>
+        @font-face {
+            font-family: 'AlimamaShuHeiTi';
+            src: url('./src/ziti/AlimamaShuHeiTi-Bold.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        :root {
+            --bg-primary: #e3f2fd;
+            --bg-secondary: #f3e5f5;
+            --text-color: #2c3e50;
+            --hero-overlay: rgba(227, 242, 253, 0.9);
+            --hero-gradient: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+            --content-width: 85%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'AlimamaShuHeiTi', system-ui, sans-serif;
+        }
+
+        body {
+            background: var(--hero-gradient);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            height: 70vh;
+            background: 
+                linear-gradient(var(--hero-overlay), var(--hero-overlay)),
+                url('./src/img/01.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+
+        .hero-content {
+            text-align: center;
+            padding: 20px;
+            width: var(--content-width);
+            max-width: 1200px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            background: linear-gradient(45deg, #64b5f6, #f06292);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 2rem;
+        }
+
+        .hero-content p {
+            position: relative;
+            padding-left: 3rem;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content p::before {
+            content: '“';
+            position: absolute;
+            left: -1.5rem;
+            top: -2rem;
+            font-size: 6rem;
+            background: linear-gradient(45deg, #64b5f6, #f06292);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-family: 'AlimamaShuHeiTi', sans-serif;
+            z-index: 1;
+            line-height: 1;
+        }
+
+        /* 精美图集标题 */
+        .bt1 {
+            display: flex;
+            align-items: center;
+            width: var(--content-width);
+            max-width: 1200px;
+            margin: 4rem auto 2rem;
+            padding: 0 20px;
+        }
+
+        .bt1 img {
+            width: 56px;
+            height: 56px;
+            margin-right: 1.2rem;
+            filter: drop-shadow(0 2px 4px rgba(100, 181, 246, 0.2));
+        }
+
+        .bt1 p {
+            font-size: 2.4rem;
+            background: linear-gradient(45deg, #64b5f6, #f06292);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .bt1 p::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10%;
+            height: 80%;
+            width: 4px;
+            background: linear-gradient(to bottom, #64b5f6, #f06292);
+            border-radius: 2px;
+        }
+
+        /* 轮播图容器 */
+        .carousel-container {
+            position: relative;
+            width: var(--content-width);
+            max-width: 1200px;
+            height: 600px;
+            margin: 3rem auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(100, 181, 246, 0.2);
+        }
+
+        .carousel-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 2;
+        }
+
+        .indicator {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: #f06292;
+            transform: scale(1.2);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            :root {
+                --content-width: 90%;
+            }
+
+            .hero {
+                height: 50vh;
+                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                padding-left: 2rem;
+                font-size: 1rem;
+            }
+
+            .hero-content p::before {
+                font-size: 4rem;
+                left: -1rem;
+                top: -1rem;
+            }
+
+            .carousel-container {
+                height: 400px;
+            }
+
+            .bt1 {
+                margin: 1rem auto 1.5rem;
+            }
+
+            .bt1 img {
+                width: 15px;
+                height: 15px;
+                margin-right: 1rem;
+            }
+
+            .bt1 p {
+                font-size: 1.5rem;
+                padding-left: 1rem;
+            }
+
+            .bt1 p::before {
+                width: 3px;
+            }
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 2rem 1rem;
+            margin-top: 4rem;
+            text-align: center;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        footer a {
+            color: #64b5f6;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #f06292;
+            text-decoration: underline;
+        }
+
+        .icp-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .icp-links img {
+            width: 20px;
+            height: auto;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+        .copyright {
+            color: rgba(44, 62, 80, 0.7);
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 480px) {
+            footer {
+                padding: 1.5rem 1rem;
+            }
+            
+            .icp-links {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>独属于我们的青春</h1>
+            <p>每个人都独属于自己的青春，所以要不断前进，那个她会在命运的安排下，在那前进的路上，与你相遇!</p>
+        </div>
+    </div>
+    
+    <div class="bt1">
+        <img src="./src/img/h1.svg" alt="图标装饰">
+        <p>精美图集</p>
+    </div>
+
+    <div class="carousel-container">
+        <div class="carousel-slide active">
+            <img src="./src/img/001.jpg" alt="轮播1">
+        </div>
+        <div class="carousel-slide">
+            <img src="./src/img/002.jpg" alt="轮播2">
+        </div>
+        <div class="carousel-slide">
+            <img src="./src/img/003.jpg" alt="轮播3">
+        </div>
+        <!-- 添加新的轮播图 -->
+        <div class="carousel-slide">
+            <img src="./src/img/004.jpg" alt="轮播4">
+        </div>
+        <div class="carousel-slide">
+            <img src="./src/img/005.jpg" alt="轮播5">
+        </div>
+        
+        <div class="carousel-indicators">
+            <div class="indicator active"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="copyright">
+                青春是一本太仓促的书，我们含着泪，一读再读。那些在校园里奔跑的日子，那些一起分享耳机的时光，都成了青春里最闪耀的碎片。我们通过这本照片集，留住青春的模样，唤起那些温暖而美好的回忆。
+            </div>
+            <div class="copyright">
+                © 2025 致青春 照片集. 保留所有权利.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const indicators = document.querySelectorAll('.indicator');
+        const intervalTime = 5000;
+
+        function updateSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(ind => ind.classList.remove('active'));
+            
+            currentIndex = (index + slides.length) % slides.length;
+            slides[currentIndex].classList.add('active');
+            indicators[currentIndex].classList.add('active');
+        }
+
+        let autoPlay = setInterval(() => {
+            updateSlide(currentIndex + 1);
+        }, intervalTime);
+
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                clearInterval(autoPlay);
+                updateSlide(index);
+            });
+        });
+
+        const carousel = document.querySelector('.carousel-container');
+        carousel.addEventListener('mouseenter', () => clearInterval(autoPlay));
+        carousel.addEventListener('mouseleave', () => {
+            autoPlay = setInterval(() => {
+                updateSlide(currentIndex + 1);
+            }, intervalTime);
+        });
+    </script>
+</body>
+</html>
